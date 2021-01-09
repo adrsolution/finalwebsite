@@ -292,6 +292,7 @@ const messageBot = (question_id) => {
             user.interests = userInterests
             writeDataToFirebase(user);
             message_bot_div.appendChild(messageBotElement('Thanks for your interest in our company! Will be contacting you soon!'));
+            document.querySelector('.form').style.display = 'none';
         });
         
     } else {
@@ -384,7 +385,7 @@ const returnNextQuestion = (question__id, optionKey) => {
 }
 
 const writeDataToFirebase = (user) => {
-    firebase.database().ref('users').set({
+    firebase.database().ref('users/' + user.email.replace('.',',')).set({
         name: user.name,
         email: user.email,
         interest: user.interests
