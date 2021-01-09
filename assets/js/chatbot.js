@@ -241,7 +241,7 @@ var user = {};
 
 const talk = (question_id) => {
     // Removing onfocus to prevent function call repeatedly!
-    document.querySelector('#chat-input').removeAttribute('onfocus');
+    document.querySelector('#chat-input').removeAttribute('onclick');
     start(question_id);
 }
 
