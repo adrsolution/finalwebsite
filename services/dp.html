@@ -27,10 +27,40 @@
 
   <!-- Template Main CSS File -->
   <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/animate.min.css" rel="stylesheet">
 
 </head>
 
 <body>
+   <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.2/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        var firebaseConfig = {
+            apiKey: "AIzaSyBalqykEsgxKTzuSXgwHJjE_4iVOGYKG0I",
+            authDomain: "chatbot-46c51.firebaseapp.com",
+            projectId: "chatbot-46c51",
+            storageBucket: "chatbot-46c51.appspot.com",
+            messagingSenderId: "611689585304",
+            appId: "1:611689585304:web:a9b0eab7d26c373c740eed",
+            measurementId: "G-LP0X2TKPDV"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        var database = firebase.database();
+    </script>
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-inner-pages">
@@ -45,25 +75,6 @@
           <li><a href="../index.html">Home</a></li>
           <li><a href="../index.html#about">About</a></li>
           <li><a href="../index.html#services">Services</a></li>
-          <!-- <li class="active"><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#team">Team</a></li>
-          <li class="drop-down"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> -->
           <li><a href="../index.html#contact">Contact</a></li>
 
         </ul>
@@ -79,39 +90,13 @@
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
-        <ol>
-          <li><a href="../index.html#services">Services</a></li>
-          <li>Data Processing</li>
-        </ol>
-        <h2>Service Details</h2>
-
+        <h2>Data Processing</h2>
       </div>
     </section><!-- End Breadcrumbs -->
 
     <!-- ======= Portfolio Details Section ======= -->
     <section id="portfolio-details" class="portfolio-details">
       <div class="container">
-
-        <div class="portfolio-details-container">
-
-          <div class="owl-carousel portfolio-details-carousel">
-            <img src="../assets/img/portfolio/portfolio-details-1.jpg" class="img-fluid" alt="">
-            <img src="../assets/img/portfolio/portfolio-details-2.jpg" class="img-fluid" alt="">
-            <img src="../assets/img/portfolio/portfolio-details-3.jpg" class="img-fluid" alt="">
-          </div>
-
-          <!-- <div class="portfolio-info">
-            <h3>Project information</h3>
-            <ul>
-              <li><strong>Category</strong>: Web design</li>
-              <li><strong>Client</strong>: ASU Company</li>
-              <li><strong>Project date</strong>: 01 March, 2020</li>
-              <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-            </ul>
-          </div> -->
-
-        </div>
 
         <div class="portfolio-description">
           <h2>What is Data Processing?</h2>
@@ -147,14 +132,7 @@
               <li>Insurance Claims Processing</li>
               <li>Product Catalog Processing</li>
               <li>Market Research Forms Processing</li>
-              <!-- <li>Ecological Information</li> -->
             </ul>
-            <!-- <ul class="col-md-4 col-sm-12">
-              <li>Disposal Considerations</li>
-              <li>Transport Information</li>
-              <li>Regulatory Information</li>
-              <li>Other Information</li>
-            </ul> -->
           </div>
           
         </div>
@@ -167,83 +145,109 @@
   <!-- ======= Footer ======= -->
   <footer id="footer">
 
-    <!-- <div class="footer-newsletter">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
     <div class="footer-top">
-      <div class="container">
-        <div class="row">
+        <div class="container">
+            <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>ADR SOLUTION</h3>
-            <p>
-              New Appartment <br>
-              Mumbai<br>
-              <!-- <strong>Phone:</strong> +1 5589 55488 55<br> -->
-              <strong>Email:</strong> adrsolution@outlook.com<br>
-            </p>
-          </div>
+                <div class="col-lg-3 col-md-6 footer-contact">
+                    <h3>ADR SOLUTION</h3>
+                    <p>
+                        New Appartment <br> Mumbai
+                        <br>
+                        <!-- <strong>Phone:</strong> +1 5589 55488 55<br> -->
+                        <strong>Email:</strong> adrsolution@outlook.com<br>
+                    </p>
+                </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#" class="scrollto">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#about" class="scrollto">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#services" class="scrollto">Services</a></li>
-              <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li> -->
-            </ul>
-          </div>
+              <div class="col-lg-3 col-md-6 footer-links">
+                  <h4>Our Services</h4>
+                  <ul>
+                      <li><i class="bx bx-chevron-right"></i> <a href="its.html">Information Technology Services</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="dms.html">Digital Marketing Services</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="sds.html">SDS Management Services</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="as.html">Administrative Support</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="das.html">Data Analytics Services</a></li>
+                  </ul>
+              </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
+              <div class="col-lg-3 col-md-6 footer-links">
+                  <!-- <h4>Our Services</h4> -->
+                  <ul>
+                      <li><i class="bx bx-chevron-right"></i> <a href="dp.html">Data Processing</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="de.html">Data Entry</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="ws.html">Web Searching</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="dcs.html">Data Conversion Services</a></li>
+                      <li><i class="bx bx-chevron-right"></i> <a href="sis.html">Scanning and Indexing Services</a></li>
+                  </ul>
+              </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Social Networks</h4>
-            <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p> -->
-            <div class="social-links mt-3">
-              <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                <div class="col-lg-3 col-md-6 footer-links">
+                    <h4>Our Social Networks</h4>
+                    <!-- <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p> -->
+                    <div class="social-links mt-3">
+                        <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> -->
+                        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+                        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+                        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                    </div>
+                </div>
+
             </div>
-          </div>
-
         </div>
-      </div>
     </div>
 
     <div class="container footer-bottom clearfix">
-      <div class="copyright">
-        &copy; Copyright <strong><span>ADR SOLUTION</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        Designed by <a href="#">ADR SOLUTION</a>
-      </div>
+        <div class="copyright">
+            &copy; Copyright <strong><span>ADR SOLUTION</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            Designed by <a href="#">ADR SOLUTION</a>
+        </div>
     </div>
-  </footer><!-- End Footer -->
+  </footer>
+  <!-- End Footer -->
 
-  <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
+  <!-- CHATBOT APPLICATION -->
+  <div id="chat-circle" class="btn btn-raised">
+      <div id="chat-overlay"></div>
+      <i class="bx bxs-chat"></i>
+  </div>
+
+  <div class="chat-box">
+      <div class="chat-box-header">
+          Chat-Bot
+          <span class="chat-box-toggle"><i class="bx bx-x"></i></span>
+      </div>
+      <div class="chat-box-body">
+          <div class="chat-box-overlay">
+          </div>
+          <!--chat-log -->
+          <div class="chat-logs">
+              <div class="message"></div>
+              <div>
+                  <div class="answer animate__animated animate__fadeIn row" id="options">
+                  </div>
+              </div>
+              <div class="form">
+                  <div class="form-group">
+                      <label for="name">Name: </label>
+                      <input type="text" class="form-control" autocomplete="off" id="chat-name">
+                  </div>
+                  <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="email" class="form-control" autocomplete="off" id="chat-email">
+                  </div>
+                  <button type="submit" id="quote" class="btn btn-primary">Submit</button>
+              </div>
+          </div>
+      </div>
+      <div class="chat-input">
+          <input type="text" id="chat-input" autocomplete="off" onclick="talk(1)" placeholder="Please type your message..." />
+          <button type="button" class="chat-submit" id="chat-submit"><i class="bx bx-send "></i></button>
+      </div>
+  </div>
+
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
@@ -259,6 +263,7 @@
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/chatbot.js"></script>
 
 </body>
 

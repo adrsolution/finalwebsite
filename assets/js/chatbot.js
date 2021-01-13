@@ -272,7 +272,7 @@ const messageBot = (question_id) => {
 
     message_bot_div.style.display = 'flex';
     icon_div.classList.add('icon');
-    icon_img.src = "assets/img/bot.png";
+    icon_img.src = "/assets/img/bot.png";
     icon_img.alt = "chatbot-icon";
 
     // message.appendChild(message_bot_div);
@@ -290,9 +290,14 @@ const messageBot = (question_id) => {
             user.name = document.querySelector('#chat-name').value;
             user.email = document.querySelector('#chat-email').value;
             user.interests = userInterests
-            writeDataToFirebase(user);
-            message_bot_div.appendChild(messageBotElement('Thanks for your interest in our company! Will be contacting you soon!'));
-            document.querySelector('.form').style.display = 'none';
+            if (user.name == '' || user.email == '') {
+                message_bot_div.appendChild(messageBotElement('Please enter the details!'));
+                document.querySelector('.form').style.display = 'flex';
+            } else {
+                writeDataToFirebase(user);
+                message_bot_div.appendChild(messageBotElement('Thanks for your interest in our company! Will be contacting you soon!'));
+                document.querySelector('.form').style.display = 'none';
+            }
         });
         
     } else {
@@ -364,7 +369,7 @@ const userAnswer = (result) => {
     user_icon_div.classList.add('animate__animated');
     user_icon_div.classList.add('animate__fadeInUp');
 
-    icon_img.src = "assets/img/user.png";
+    icon_img.src = "/assets/img/user.png";
     icon_img.alt = "user-icon";
 
     message_user_div.appendChild(user_icon_div);
