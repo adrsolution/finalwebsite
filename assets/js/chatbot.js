@@ -281,10 +281,11 @@ const messageBot = (question_id) => {
 
     if (question_id === 1) {
         message_bot_div.appendChild(messageBotElement('Hello!'));
-        message_bot_div.appendChild(messageBotElement('I am chatbot, here to help you!'));
+        message_bot_div.appendChild(messageBotElement('I am Celia, from ADR Solutions'));
         message_bot_div.appendChild(messageBotElement(data[question_id].question));
-    } else if (question_id === -1) {
+    } else if (question_id === -1 && userInterests[4] == "Yes!") {
         document.querySelector('.form').style.display = 'block';
+        console.log(userInterests);
         
         document.querySelector('#quote').addEventListener('click', () => {
             user.name = document.querySelector('#chat-name').value;
@@ -292,7 +293,7 @@ const messageBot = (question_id) => {
             user.interests = userInterests
             if (user.name == '' || user.email == '') {
                 message_bot_div.appendChild(messageBotElement('Please enter the details!'));
-                document.querySelector('.form').style.display = 'flex';
+                document.querySelector('.form').style.display = 'block';
             } else {
                 writeDataToFirebase(user);
                 message_bot_div.appendChild(messageBotElement('Thanks for your interest in our company! Will be contacting you soon!'));
@@ -300,7 +301,12 @@ const messageBot = (question_id) => {
             }
         });
         
+    } else if (question_id === -1 && userInterests[4] == "No!") {
+        console.log(userInterests);
+        document.querySelector('.form').style.display = 'none';
+        message_bot_div.appendChild(messageBotElement('Thanks for your interest!'));
     } else {
+        console.log(userInterests);
         message_bot_div.appendChild(messageBotElement(data[question_id].question));
     }
 

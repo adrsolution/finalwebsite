@@ -153,7 +153,7 @@ h1, h2, h3, h4, h5, h6 {
 .chat-box-body:after {
   content: "";
   background-image: url('https://www.filepicker.io/api/file/u5frNNlBQDQbBX0nh9Mg');
-  opacity: 0.1;
+  opacity: 0.4;
   top: 0;
   left: 0;
   bottom: 0;
