@@ -579,9 +579,8 @@ const messageBot = (question_id) => {
       message_bot_div.appendChild(messageBotElement('Hello!'));
       message_bot_div.appendChild(messageBotElement('I am Celia, from ADR Solutions'));
       message_bot_div.appendChild(messageBotElement(data[question_id].question));
-  } else if (question_id === -1 && userInterests[4] == "Yes!") {
+  } else if (question_id === -1 && userInterests.includes('Yes!')) {
       document.querySelector('.form').style.display = 'block';
-      console.log(userInterests);
       
       document.querySelector('#quote').addEventListener('click', () => {
           user.name = document.querySelector('#chat-name').value;
@@ -597,7 +596,7 @@ const messageBot = (question_id) => {
           }
       });
       
-  } else if (question_id === -1 && userInterests[4] == "No!") {
+  } else if (question_id === -1 && userInterests.includes('No!')) {
       console.log(userInterests);
       document.querySelector('.form').style.display = 'none';
       message_bot_div.appendChild(messageBotElement('Thanks for your interest!'));
